@@ -4,6 +4,7 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -16,11 +17,14 @@ import java.io.Serializable;
 public class Employee implements Serializable {
 
     @Id
-    @NotNull
+    @NotNull(message = "EL Id no puede ser nulo")
+    @NotEmpty(message = "EL Id no puede ser vacio")
     private String id;
 
     private String name;
 
+    @NotNull(message = "EL Id no puede ser nulo")
+    @NotEmpty(message = "EL Id no puede ser vacio")
     private Double salary;
 
 }
