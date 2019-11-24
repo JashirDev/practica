@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @ToString
@@ -17,6 +18,7 @@ import java.io.Serializable;
 public class Employee implements Serializable {
 
     @Id
+    @Size(max = 4, min = 4)
     @NotNull(message = "EL Id no puede ser nulo")
     @NotEmpty(message = "EL Id no puede ser vacio")
     private String id;
@@ -24,7 +26,6 @@ public class Employee implements Serializable {
     private String name;
 
     @NotNull(message = "EL Id no puede ser nulo")
-    @NotEmpty(message = "EL Id no puede ser vacio")
     private Double salary;
 
 }

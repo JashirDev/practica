@@ -24,7 +24,7 @@ public class EmployeeServiceImpl implements EmployeService {
     }
 
     @Override
-    public Mono<Employee> getSingleEmloyee() {
-        return null;
+    public Mono<Employee> getSingleEmloyee(String id) {
+        return repo.findById(id);
     }
 }

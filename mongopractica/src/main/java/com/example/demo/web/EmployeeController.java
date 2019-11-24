@@ -22,6 +22,13 @@ public class EmployeeController {
         return service.getAllEmployees();
     }
 
+    @GetMapping(value= "/employee/{id}", produces = { MediaType.APPLICATION_STREAM_JSON_VALUE,
+            MediaType.APPLICATION_JSON_VALUE })
+    public Mono<Employee> getEmployeesById(@PathVariable(name = "id") String employeeId){
+        return service.getSingleEmloyee(employeeId);
+    }
+
+
     @PostMapping(value= "/numbers", produces = { MediaType.APPLICATION_STREAM_JSON_VALUE,
             MediaType.APPLICATION_JSON_VALUE })
     public Mono<Employee>saveEmployee(@Validated @RequestBody Employee employee){
